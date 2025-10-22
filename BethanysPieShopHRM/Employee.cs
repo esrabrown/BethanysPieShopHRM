@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,15 @@ namespace BethanysPieShopHRM
 
         const int minimalHoursWorkedUnit = 1;
 
+        public Employee(string first, string last, string em, DateTime bd, double rate)
+        {
+            firstName = first;
+            lastName = last;
+            email = em;
+            birthday = bd;
+            hourlyRate = rate;
+        }
+
         public void PerformWork()
         {
             //numberOfHoursWorked++;
@@ -30,7 +40,7 @@ namespace BethanysPieShopHRM
         public void PerformWork(int numberOfHours)
         {
             numberOfHoursWorked += numberOfHours;
-            Console.WriteLine($"{firstName} {lastName} has worked for {numberOfHoursWorked} hour(s)!");
+            Console.WriteLine($"{firstName} {lastName} has worked for {numberOfHours} hour(s)!");
 
 
         }
@@ -49,7 +59,7 @@ namespace BethanysPieShopHRM
 
         public void DisplayEmployeeDetails()
         {
-            Console.WriteLine($"\nFirst Name: \t{firstName}\nLast Name: \t{lastName}\nEmail: \t{email}\nBirthday: \t{birthday.ToShortDateString()}\n");
+            Console.WriteLine($"\nFirst Name: \t{firstName}\nLast Name: \t{lastName}\nEmail: \t\t{email}\nBirthday: \t{birthday.ToShortDateString()}\n");
         }
     }
 }
